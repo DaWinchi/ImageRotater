@@ -6,19 +6,27 @@
 using namespace Gdiplus;
 using namespace std;
 
-class CModelDraw : public CStatic
+struct Pixel
+{
+	double x;
+	double y;
+	double red;
+	double green;
+	double blue;
+};
+
+class Draw2D : public CStatic
 {
 
 public:
 	double xmin, xmax, ymin, ymax;
 	int *_R;
-	std::vector<std::vector<double>>* _image;
+	std::vector<std::vector<Pixel>>* _image;
 	bool _isSpectr, _ellipseDrawing;
 	Bitmap *_bmpSpect;
-	CModelDraw();
-	~CModelDraw();
+	Draw2D();
+	~Draw2D();
 	virtual void DrawItem(LPDRAWITEMSTRUCT lpDrawItemStruct);
-	void Update();
 	REAL X(LPDRAWITEMSTRUCT RECT, float x);
 	REAL Y(LPDRAWITEMSTRUCT RECT, float y);
 	REAL Width(LPDRAWITEMSTRUCT RECT, float width);

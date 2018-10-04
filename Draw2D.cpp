@@ -26,7 +26,7 @@ Draw2D::~Draw2D()
 void Draw2D::DrawItem(LPDRAWITEMSTRUCT RECT)
 {
 	Graphics gr(RECT->hDC);
-	if (_image != nullptr && !_ellipseDrawing)
+	if (!_image->empty())
 	{
 		size_t width = _image[0][0].size();
 		size_t height = _image->size();
@@ -41,29 +41,14 @@ void Draw2D::DrawItem(LPDRAWITEMSTRUCT RECT)
 		{
 			for (int j = 0; j < width; j++)
 			{
-				double val = _image[0][i][j];
 				Color color;
-				color = Color::MakeARGB(255, val, val, val);
-				bmpBuffer.SetPixel(j, height -1 - i, color);
+				color = Color::MakeARGB(255, _image[0][i][j].red, _image[0][i][j].green, _image[0][i][j].blue);
+				bmpBuffer.SetPixel(j, height - 1 - i, color);
 			}
 		}
 		Rect rect(0, 0, RECT->rcItem.right, RECT->rcItem.bottom);
-		_bmpSpect = bmpBuffer.Clone(0, 0, bmpBuffer.GetWidth(), bmpBuffer.GetHeight(), PixelFormatDontCare);
 		gr.DrawImage(&bmpBuffer, rect);
 	}
-
-	if (_R != nullptr && _ellipseDrawing)
-	{
-		Rect rect(0, 0, RECT->rcItem.right, RECT->rcItem.bottom);
-		Bitmap *bmpR= _bmpSpect->Clone(0, 0, _bmpSpect->GetWidth(), _bmpSpect->GetHeight(), PixelFormatDontCare);
-		Graphics grBmpR(bmpR);
-		xmax = bmpR->GetWidth();
-		ymax = bmpR->GetHeight();
-		Pen pen(Color::Red, 1);
-		grBmpR.DrawEllipse(&pen, xmax / 2.f- *_R, ymax / 2.f - *_R-1, *_R*2.f, *_R*2.f);
-		gr.DrawImage(bmpR, rect);
-	}
-	
 }
 
 

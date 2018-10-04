@@ -183,6 +183,7 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Draw2D.h" />
     <ClInclude Include="ImageRotater.h" />
     <ClInclude Include="ImageRotaterDlg.h" />
     <ClInclude Include="Resource.h" />
@@ -190,6 +191,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Draw2D.cpp" />
     <ClCompile Include="ImageRotater.cpp" />
     <ClCompile Include="ImageRotaterDlg.cpp" />
     <ClCompile Include="stdafx.cpp">
