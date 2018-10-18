@@ -139,6 +139,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <OpenMPSupport>true</OpenMPSupport>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -165,6 +166,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <OpenMPSupport>true</OpenMPSupport>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -184,6 +186,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Draw2D.h" />
+    <ClInclude Include="DrawGraph.h" />
     <ClInclude Include="ImageRotater.h" />
     <ClInclude Include="ImageRotaterDlg.h" />
     <ClInclude Include="Resource.h" />
@@ -192,6 +195,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Draw2D.cpp" />
+    <ClCompile Include="DrawGraph.cpp" />
     <ClCompile Include="ImageRotater.cpp" />
     <ClCompile Include="ImageRotaterDlg.cpp" />
     <ClCompile Include="stdafx.cpp">
