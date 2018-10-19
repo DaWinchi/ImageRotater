@@ -39,14 +39,19 @@ void DrawGraph::DrawItem(LPDRAWITEMSTRUCT RECT)
 			if (fabs(_points[0][i].Y) > maxY) maxY = fabs(_points[0][i].Y);
 			if (_points[0][i].X > maxX) maxX = _points[0][i].X;
 		}
+		if (maxY == 0 || maxX == 0)
+		{
+			maxY = 1;
+			maxX = 1;
+		}
 	}
 	ymax = maxY + maxY / 3.f;
-	ymin = -ymax;
-	step_y = ymax / 3.f;
+	ymin = -ymax/14.f;
+	step_y = ymax / 4.f;
 
 	xmax = maxX;
 	xmin = -xmax / 100.f;
-	step_x = xmax / 5.f;
+	step_x = xmax / 12.f;
 
 	LeaveCriticalSection(&cs);
 
@@ -60,8 +65,8 @@ void DrawGraph::DrawItem(LPDRAWITEMSTRUCT RECT)
 	SolidBrush brush(Color::White);
 	Pen graph_pen(Color::Yellow, 4);
 	Pen bottom_pen(Color::Aqua, 4);
-	Pen osi_pen(Color::White, 2);
-	Pen setka_pen(Color::White, 1);
+	Pen osi_pen(Color::White, 3);
+	Pen setka_pen(Color::LightGray, 1);
 	setka_pen.SetDashStyle(DashStyle::DashStyleDash);
 
 	grBmp.SetSmoothingMode(SmoothingModeAntiAlias);
@@ -111,13 +116,13 @@ void DrawGraph::DrawItem(LPDRAWITEMSTRUCT RECT)
 	for (double y = step_y; y <= ymax; y += step_y)
 	{
 		CString str;
-		str.Format(_T("%.e"), y);
+		str.Format(_T("%.5f"), y);
 		grBmp.DrawString(str, -1, &podpis, PointF(X(RECT, 0), Y(RECT, y) + 2.f), NULL, &brush);
 	}
 	for (double y = 0; y >= ymin; y -= step_y)
 	{
 		CString str;
-		str.Format(_T("%.e"), y);
+		str.Format(_T("%.5f"), y);
 		grBmp.DrawString(str, -1, &podpis, PointF(X(RECT, 0), Y(RECT, y) + 2.f), NULL, &brush);
 	}
 	LeaveCriticalSection(&cs);
