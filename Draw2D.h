@@ -8,8 +8,6 @@ using namespace std;
 
 struct Pixel
 {
-	double x;
-	double y;
 	double red;
 	double green;
 	double blue;
