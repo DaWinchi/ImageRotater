@@ -3,15 +3,11 @@
 #include <gdiplus.h>
 #include <vector>
 #include <iostream>
+#include "Pixel.h"
 using namespace Gdiplus;
 using namespace std;
 
-struct Pixel
-{
-	double red;
-	double green;
-	double blue;
-};
+
 
 class Draw2D : public CStatic
 {

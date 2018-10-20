@@ -187,6 +187,7 @@
   <ItemGroup>
     <ClInclude Include="Draw2D.h" />
     <ClInclude Include="DrawGraph.h" />
+    <ClInclude Include="ImageDlg.h" />
     <ClInclude Include="ImageRotater.h" />
     <ClInclude Include="ImageRotaterDlg.h" />
     <ClInclude Include="Resource.h" />
@@ -196,6 +197,7 @@
   <ItemGroup>
     <ClCompile Include="Draw2D.cpp" />
     <ClCompile Include="DrawGraph.cpp" />
+    <ClCompile Include="ImageDlg.cpp" />
     <ClCompile Include="ImageRotater.cpp" />
     <ClCompile Include="ImageRotaterDlg.cpp" />
     <ClCompile Include="stdafx.cpp">
