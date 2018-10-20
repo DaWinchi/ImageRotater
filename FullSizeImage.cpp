@@ -25,7 +25,7 @@ FullSizeImage::~FullSizeImage()
 void FullSizeImage::DrawItem(LPDRAWITEMSTRUCT RECT)
 {
 	Graphics gr(RECT->hDC);
-	if (!_image->empty())
+	if (_image != nullptr && !_image->empty())
 	{
 		size_t width = _image[0][0].size();
 		size_t height = _image->size();
@@ -44,7 +44,7 @@ void FullSizeImage::DrawItem(LPDRAWITEMSTRUCT RECT)
 				bmpBuffer.SetPixel(j, height - 1 - i, color);
 			}
 		}
-		Rect rect(0, 0, RECT->rcItem.right, RECT->rcItem.bottom);
+		Rect rect(0, 0, width, height);
 		gr.DrawImage(&bmpBuffer, rect);
 	}
 }

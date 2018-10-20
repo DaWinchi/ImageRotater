@@ -14,10 +14,7 @@ class FullSizeImage : public CStatic
 
 public:
 	double xmin, xmax, ymin, ymax;
-	int *_R;
 	std::vector<std::vector<Pixel>>* _image;
-	bool _isSpectr, _ellipseDrawing;
-	Bitmap *_bmpSpect;
 	FullSizeImage();
 	~FullSizeImage();
 	virtual void DrawItem(LPDRAWITEMSTRUCT lpDrawItemStruct);
